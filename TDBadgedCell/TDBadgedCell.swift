@@ -11,10 +11,10 @@ import UIKit
 /// TDBadgedCell is a table view cell class that adds a badge, similar to the badges in Apple's own apps
 /// The badge is generated as image data and drawn as a sub view to the table view sell. This is hopefully
 /// most resource effective that a manual draw(rect:) call would be
-public class TDBadgedCell: UITableViewCell {
+open class TDBadgedCell: UITableViewCell {
 
     /// Badge value
-    public var badgeString : String = "" {
+    open var badgeString : String = "" {
         didSet {
             if(badgeString == "") {
                 badgeView.removeFromSuperview()
@@ -27,23 +27,23 @@ public class TDBadgedCell: UITableViewCell {
     }
     
     /// Badge background color for normal states
-    public var badgeColor : UIColor = UIColor(red: 0, green: 0.478, blue: 1, alpha: 1.0)
+    open var badgeColor : UIColor = UIColor(red: 0, green: 0.478, blue: 1, alpha: 1.0)
     /// Badge background color for highlighted states
-    public var badgeColorHighlighted : UIColor = .darkGray
+    open var badgeColorHighlighted : UIColor = .darkGray
     
     /// Badge font size
-    public var badgeFontSize : Float = 11.0
+    open var badgeFontSize : Float = 11.0
     /// Badge text color
-    public var badgeTextColor: UIColor?
+    open var badgeTextColor: UIColor?
     /// Corner radius of the badge. Set to 0 for square corners.
-    public var badgeRadius : Float = 20
+    open var badgeRadius : Float = 20
     /// The Badges offset from the right hand side of the Table View Cell
-    public var badgeOffset = CGPoint(x:10, y:0)
+    open var badgeOffset = CGPoint(x:10, y:0)
     
     /// The Image view that the badge will be rendered into
     internal let badgeView = UIImageView()
     
-    override public func layoutSubviews() {
+    override open func layoutSubviews() {
         super.layoutSubviews()
         
         // Layout our badge's position
@@ -63,12 +63,12 @@ public class TDBadgedCell: UITableViewCell {
     }
     
     // When the badge
-    override public func setHighlighted(_ highlighted: Bool, animated: Bool) {
+    override open func setHighlighted(_ highlighted: Bool, animated: Bool) {
         super.setHighlighted(highlighted, animated: animated)
         drawBadge()
     }
     
-    override public func setSelected(_ selected: Bool, animated: Bool) {
+    override open func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
         drawBadge()
     }
